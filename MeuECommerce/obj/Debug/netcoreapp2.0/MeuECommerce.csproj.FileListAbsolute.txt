@@ -1,0 +1,11 @@
+C:\Users\bubub\source\repos\MeuECommerce\MeuECommerce\bin\Debug\netcoreapp2.0\MeuECommerce.deps.json
+C:\Users\bubub\source\repos\MeuECommerce\MeuECommerce\bin\Debug\netcoreapp2.0\MeuECommerce.runtimeconfig.json
+C:\Users\bubub\source\repos\MeuECommerce\MeuECommerce\bin\Debug\netcoreapp2.0\MeuECommerce.runtimeconfig.dev.json
+C:\Users\bubub\source\repos\MeuECommerce\MeuECommerce\bin\Debug\netcoreapp2.0\MeuECommerce.dll
+C:\Users\bubub\source\repos\MeuECommerce\MeuECommerce\bin\Debug\netcoreapp2.0\MeuECommerce.pdb
+C:\Users\bubub\source\repos\MeuECommerce\MeuECommerce\obj\Debug\netcoreapp2.0\MeuECommerce.csprojAssemblyReference.cache
+C:\Users\bubub\source\repos\MeuECommerce\MeuECommerce\obj\Debug\netcoreapp2.0\MeuECommerce.csproj.CoreCompileInputs.cache
+C:\Users\bubub\source\repos\MeuECommerce\MeuECommerce\obj\Debug\netcoreapp2.0\MeuECommerce.AssemblyInfoInputs.cache
+C:\Users\bubub\source\repos\MeuECommerce\MeuECommerce\obj\Debug\netcoreapp2.0\MeuECommerce.AssemblyInfo.cs
+C:\Users\bubub\source\repos\MeuECommerce\MeuECommerce\obj\Debug\netcoreapp2.0\MeuECommerce.dll
+C:\Users\bubub\source\repos\MeuECommerce\MeuECommerce\obj\Debug\netcoreapp2.0\MeuECommerce.pdb
