@@ -6,13 +6,18 @@ using System.Threading.Tasks;
 
 namespace MeuECommerce.Repositories
 {
-    public class ProdutoRepository : IProdutoRepository
+    public class ProdutoRepository: IProdutoRepository
     {
         private readonly ApplicationContext contexto;
 
         public ProdutoRepository(ApplicationContext contexto)
         {
             this.contexto = contexto;
+        }
+
+        public IList<Produto> GetProdutos()
+        {
+            return contexto.Set<Produto>().ToList();
         }
 
         public void SaveProdutos(List<Livro> livros)
