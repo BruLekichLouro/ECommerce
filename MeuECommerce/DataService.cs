@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using MeuECommerce.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -21,6 +22,12 @@ namespace MeuECommerce
 
             var json = File.ReadAllText("livros.json");
             var livros = JsonConvert.DeserializeObject<List<Livro>>(json);
+
+            foreach (var livro in livros)
+            {
+                contexto.Set<Produto>().Add(new Produto(livro.Codigo, livro.Nome, livro.Preco));
+            }
+            contexto.SaveChanges();
         }
     }
     class Livro
