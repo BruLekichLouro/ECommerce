@@ -12,6 +12,7 @@ namespace MeuECommerce.Controllers
     {
         private readonly IProdutoRepository produtoRepository;
         private readonly IPedidoRepository pedidoRepository;
+        private string codigo;
 
         public PedidoController(IProdutoRepository produtoRepository,
             IPedidoRepository pedidoRepository)
@@ -24,8 +25,13 @@ namespace MeuECommerce.Controllers
         {
             return View(produtoRepository.GetProdutos());
         }
-        public IActionResult Carrinho()
+        public IActionResult Carrinho(string codigo)
         {
+            if (!string.IsNullOrEmpty(codigo))
+            {
+                pedidoRepository.AddItem(codigo);
+            }
+
             Pedido pedido = pedidoRepository.GetPedido();
             return View(pedido.Itens);
         }
