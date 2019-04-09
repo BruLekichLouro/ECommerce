@@ -12,7 +12,6 @@ namespace MeuECommerce.Controllers
     {
         private readonly IProdutoRepository produtoRepository;
         private readonly IPedidoRepository pedidoRepository;
-        private string codigo;
 
         public PedidoController(IProdutoRepository produtoRepository,
             IPedidoRepository pedidoRepository)
@@ -41,7 +40,8 @@ namespace MeuECommerce.Controllers
         }
         public IActionResult Resumo()
         {
-            return View();
+            Pedido pedido = pedidoRepository.GetPedido();
+            return View(pedido);
         }
     }
 }
