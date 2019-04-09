@@ -1,5 +1,6 @@
 ﻿using MeuECommerce.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,12 +49,16 @@ namespace MeuECommerce.Repositories
                 contexto.SaveChanges();
             }
          }
+        
 
         public Pedido GetPedido()
         {
             var pedidoId = GetPedidoId();
-            var pedido = dbSet.Where(p => p.Id == pedidoId)
-                                                .SingleOrDefault();
+            var pedido = dbSet
+                .Where(p => p.Id == pedidoId)
+                .Include(p => p.Itens)
+                 .ThenInclude(i => i.Produto)
+                .SingleOrDefault();
 
             if (pedido == null)
             {
