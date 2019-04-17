@@ -43,7 +43,7 @@
                                class="form-control text-center" />
                         <span class="input-group-btn">
                             <button class="btn btn-default"
-                               onclick="clickIncremento()">
+                               onclick ="clickIncremento(this)">
                                 <span class="glyphicon-plus"></span>
                             </button>
                         </span>
@@ -89,8 +89,11 @@
 @section Scripts
 {
     <script type="text/javascript">
-        function clickIncremento() {
-            debugger;
+        function clickIncremento(btn) {
+            var linhaDoItem = $(btn).parents(`[item-id]`);
+            var itemId = $(linhaDoItem).attr('item-id');
+            var novaQtdade = $(linhaDoItem).find('input').val();
+            debbuger;
         }
     </script>
 }
