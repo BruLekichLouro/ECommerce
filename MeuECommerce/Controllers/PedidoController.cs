@@ -43,5 +43,10 @@ namespace MeuECommerce.Controllers
             Pedido pedido = pedidoRepository.GetPedido();
             return View(pedido);
         }
+        [HttpPost]
+        public void UpdateQuantidade([FromBody]ItemPedido itemPedido)
+        {
+            
+        }
     }
 }
