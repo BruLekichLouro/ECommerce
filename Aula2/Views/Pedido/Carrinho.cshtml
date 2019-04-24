@@ -36,15 +36,16 @@
                     <div class="input-group">
                         <span class="input-group-btn">
                             <button class="btn btn-default"
-                                    onclick ="carrinho.clickDecremento(this)">
+                                    onclick="carrinho.clickDecremento(this)">
                                 <span class="glyphicon-minus"></span>
                             </button>
                         </span>
                         <input type="text" value="@(item.Quantidade)"
                                class="form-control text-center" />
+                                        onblur="carrinho.updateQuantidade(this)"
                         <span class="input-group-btn">
                             <button class="btn btn-default"
-                                     onclick ="carrinho.clickIncremento(this)">
+                                    onclick="carrinho.clickIncremento(this)">
                                 <span class="glyphicon-plus"></span>
                             </button>
                         </span>

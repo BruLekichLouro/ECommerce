@@ -15,5 +15,10 @@ namespace MeuECommerce.Repositories
         {
 
         }
+
+        internal void UpdateQuantidade(ItemPedido itemPedido)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

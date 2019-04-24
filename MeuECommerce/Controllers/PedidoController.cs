@@ -12,12 +12,14 @@ namespace MeuECommerce.Controllers
     {
         private readonly IProdutoRepository produtoRepository;
         private readonly IPedidoRepository pedidoRepository;
+        private readonly ItemPedidoRepository itemPedidoRepository;
 
         public PedidoController(IProdutoRepository produtoRepository,
-            IPedidoRepository pedidoRepository)
+            IPedidoRepository pedidoRepository, ItemPedidoRepository itemPedidoRepository)
         {
             this.produtoRepository = produtoRepository;
             this.pedidoRepository = pedidoRepository;
+            this.itemPedidoRepository = itemPedidoRepository;
         }
 
         public IActionResult Carrossel()
@@ -46,7 +48,7 @@ namespace MeuECommerce.Controllers
         [HttpPost]
         public void UpdateQuantidade([FromBody]ItemPedido itemPedido)
         {
-            
+            itemPedidoRepository.UpdateQuantidade(itemPedido);
         }
     }
 }
