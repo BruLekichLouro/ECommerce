@@ -20,10 +20,10 @@
         var itemId = $(linhaDoItem).attr('item-id');
         var novaQtde = $(linhaDoItem).find('input').val();
 
-        return = {
+        return {
             Id: itemId,
             Quantidade: novaQtde
-        };
+                };
     }
     postQuantidade(data) {
         $.ajax({
@@ -32,5 +32,6 @@
             contentType: 'application/json',
             data: JSON.stringify(data)
         });
+    }
 }
 var carrinho = new Carrinho();

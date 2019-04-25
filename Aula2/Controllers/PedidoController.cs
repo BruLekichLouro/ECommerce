@@ -1,4 +1,5 @@
-﻿using MeuECommerce.Models;
+﻿using Aula2.Models.ViewModels;
+using MeuECommerce.Models;
 using MeuECommerce.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -26,28 +27,33 @@ namespace MeuECommerce.Controllers
         {
             return View(produtoRepository.GetProdutos());
         }
+
         public IActionResult Carrinho(string codigo)
         {
             if (!string.IsNullOrEmpty(codigo))
             {
                 pedidoRepository.AddItem(codigo);
             }
-
-            Pedido pedido = pedidoRepository.GetPedido();
-            return View(pedido.Itens);
+            
+            List<ItemPedido> itens = pedidoRepository.GetPedido().Itens;
+            CarrinhoViewModel carrinhoViewModel = new CarrinhoViewModel(itens);
+            return base.View(carrinhoViewModel);
         }
+
         public IActionResult Cadastro()
         {
             return View();
         }
+
         public IActionResult Resumo()
         {
             Pedido pedido = pedidoRepository.GetPedido();
             return View(pedido);
         }
+
         [HttpPost]
         public void UpdateQuantidade([FromBody]ItemPedido itemPedido)
         {
             itemPedidoRepository.UpdateQuantidade(itemPedido);        }
-    }
+        }
 }
