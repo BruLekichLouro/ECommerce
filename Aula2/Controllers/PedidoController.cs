@@ -1,4 +1,5 @@
-﻿using Aula2.Models.ViewModels;
+﻿using Aula2.Models;
+using Aula2.Models.ViewModels;
 using MeuECommerce.Models;
 using MeuECommerce.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -13,14 +14,14 @@ namespace MeuECommerce.Controllers
     {
         private readonly IProdutoRepository produtoRepository;
         private readonly IPedidoRepository pedidoRepository;
-        private readonly IItemPedidoRepository itemPedidoRepository;
+        private readonly IItemPedidoRepository PedidoRepository;
 
         public PedidoController(IProdutoRepository produtoRepository,
             IPedidoRepository pedidoRepository, ItemPedidoRepository itemPedidoRepository)
         {
             this.produtoRepository = produtoRepository;
             this.pedidoRepository = pedidoRepository;
-            this.itemPedidoRepository = itemPedidoRepository;
+            this.PedidoRepository = itemPedidoRepository;
         }
 
         public IActionResult Carrossel()
@@ -52,8 +53,9 @@ namespace MeuECommerce.Controllers
         }
 
         [HttpPost]
-        public void UpdateQuantidade([FromBody]ItemPedido itemPedido)
+        public UpdateQuantidadeResponse UpdateQuantidade([FromBody]ItemPedido itemPedido)
         {
-            itemPedidoRepository.UpdateQuantidade(itemPedido);        }
+            return pedidoRepository.UpdateQuantidade(itemPedido);        
         }
+    }
 }
