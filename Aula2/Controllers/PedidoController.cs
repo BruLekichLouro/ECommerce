@@ -1,5 +1,6 @@
 ﻿using Aula2.Models;
 using Aula2.Models.ViewModels;
+using Aula2.Repositories;
 using MeuECommerce.Models;
 using MeuECommerce.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -14,16 +15,16 @@ namespace MeuECommerce.Controllers
     {
         private readonly IProdutoRepository produtoRepository;
         private readonly IPedidoRepository pedidoRepository;
-        private readonly IItemPedidoRepository PedidoRepository;
+        private readonly IItemPedidoRepository itemPedidoRepository;
 
         public PedidoController(IProdutoRepository produtoRepository,
-            IPedidoRepository pedidoRepository, ItemPedidoRepository itemPedidoRepository)
+            IPedidoRepository pedidoRepository, IItemPedidoRepository itemPedidoRepository)
         {
             this.produtoRepository = produtoRepository;
             this.pedidoRepository = pedidoRepository;
-            this.PedidoRepository = itemPedidoRepository;
+            this.itemPedidoRepository = itemPedidoRepository;
         }
-
+  
         public IActionResult Carrossel()
         {
             return View(produtoRepository.GetProdutos());

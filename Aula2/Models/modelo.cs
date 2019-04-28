@@ -76,6 +76,9 @@ namespace MeuECommerce.Models
         public int Quantidade { get; private set; }
         [Required]
         [DataMember]
+        public decimal Subtotal => Quantidade * PrecoUnitario;
+        [Required]
+        [DataMember]
         public decimal PrecoUnitario { get; private set; }
 
         public ItemPedido()

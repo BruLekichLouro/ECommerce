@@ -1,5 +1,6 @@
 ﻿using Aula2.Models;
 using Aula2.Models.ViewModels;
+using Aula2.Repositories;
 using MeuECommerce.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
@@ -56,7 +57,6 @@ namespace MeuECommerce.Repositories
                 contexto.SaveChanges();
             }
          }
-        
 
         public Pedido GetPedido()
         {
