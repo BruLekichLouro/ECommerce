@@ -11,11 +11,11 @@ namespace Aula2.Repositories
     public interface IItemPedidoRepository
     {
         ItemPedido GetItemPedido(int itemPedidoId);
+        void RemoveItemPedido(int itemPedidoId);
     }
-    public class ItemPedidoRepository
+
+    public class ItemPedidoRepository : BaseRepository<ItemPedido>, IItemPedidoRepository
     {
-        public class ItemPedidoRepository : BaseRepository<ItemPedido>, IItemPedidoRepository
-        {
             public ItemPedidoRepository(ApplicationContext contexto) : base(contexto)
             {
 
@@ -28,6 +28,11 @@ namespace Aula2.Repositories
                      .Where(ip => ip.Id == itemPedidoId)
                      .SingleOrDefault();
             }
+
+        public void RemoveItemPedido(int itemPedidoId)
+        {
+            dbSet.Remove(GetItemPedido(itemPedidoId));
         }
+    }
     }
 }
