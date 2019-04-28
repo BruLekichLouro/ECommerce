@@ -12,7 +12,7 @@ namespace Aula2.Repositories
     {
         ItemPedido GetItemPedido(int itemPedidoId);
     }
-    public class ItemRepository
+    public class ItemPedidoRepository
     {
         public class ItemPedidoRepository : BaseRepository<ItemPedido>, IItemPedidoRepository
         {

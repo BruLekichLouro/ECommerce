@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using static Aula2.Repositories.ItemRepository;
+using static Aula2.Repositories.ItemPedidoRepository;
 
 namespace MeuECommerce
 {
