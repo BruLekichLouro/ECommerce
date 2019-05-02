@@ -1,7 +1,7 @@
-﻿using MeuECommerce.Models;
+﻿using Aula2.Models;
 using System.Collections.Generic;
 
-namespace MeuECommerce.Repositories
+namespace Aula2.Repositories
 {
     public interface IProdutoRepository
     {

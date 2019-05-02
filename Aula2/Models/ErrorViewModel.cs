@@ -1,6 +1,6 @@
 using System;
 
-namespace ATeste.Models
+namespace Aula2.Models
 {
     public class ErrorViewModel
     {

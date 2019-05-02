@@ -25,9 +25,10 @@ namespace MeuECommerce
             modelBuilder.Entity<ItemPedido>().HasKey(t => t.Id);
             modelBuilder.Entity<ItemPedido>().HasOne(t => t.Pedido);
             modelBuilder.Entity<ItemPedido>().HasOne(t => t.Produto);
-            
+
             modelBuilder.Entity<Cadastro>().HasKey(t => t.Id);
             modelBuilder.Entity<Cadastro>().HasOne(t => t.Pedido);
+
         }
     }
 }

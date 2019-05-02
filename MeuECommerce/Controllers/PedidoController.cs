@@ -12,20 +12,19 @@ namespace MeuECommerce.Controllers
     {
         private readonly IProdutoRepository produtoRepository;
         private readonly IPedidoRepository pedidoRepository;
-        private readonly ItemPedidoRepository itemPedidoRepository;
 
         public PedidoController(IProdutoRepository produtoRepository,
-            IPedidoRepository pedidoRepository, ItemPedidoRepository itemPedidoRepository)
+            IPedidoRepository pedidoRepository)
         {
             this.produtoRepository = produtoRepository;
             this.pedidoRepository = pedidoRepository;
-            this.itemPedidoRepository = itemPedidoRepository;
         }
 
         public IActionResult Carrossel()
         {
             return View(produtoRepository.GetProdutos());
         }
+
         public IActionResult Carrinho(string codigo)
         {
             if (!string.IsNullOrEmpty(codigo))
@@ -33,22 +32,23 @@ namespace MeuECommerce.Controllers
                 pedidoRepository.AddItem(codigo);
             }
 
-            Pedido pedido = pedidoRepository.GetPedido();
-            return View(pedido.Itens);
+            return View(pedidoRepository.GetPedido().Itens);
         }
+
         public IActionResult Cadastro()
         {
             return View();
         }
+
         public IActionResult Resumo()
         {
-            Pedido pedido = pedidoRepository.GetPedido();
-            return View(pedido);
+            return View(pedidoRepository.GetPedido());
         }
+
         [HttpPost]
         public void UpdateQuantidade([FromBody]ItemPedido itemPedido)
         {
-            itemPedidoRepository.UpdateQuantidade(itemPedido);
+
         }
     }
 }

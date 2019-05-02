@@ -23,7 +23,6 @@ namespace MeuECommerce.Repositories
         {
             foreach (var livro in livros)
             {
-               
                 if (!dbSet.Where(p => p.Codigo == livro.Codigo).Any())
                 {
                     dbSet.Add(new Produto(livro.Codigo, livro.Nome, livro.Preco));
@@ -32,6 +31,7 @@ namespace MeuECommerce.Repositories
             contexto.SaveChanges();
         }
     }
+
     public class Livro
     {
         public string Codigo { get; set; }

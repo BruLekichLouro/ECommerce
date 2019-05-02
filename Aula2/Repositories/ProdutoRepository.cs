@@ -1,17 +1,15 @@
-﻿using MeuECommerce.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Aula2.Models;
+using MeuECommerce;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
-namespace MeuECommerce.Repositories
+namespace Aula2.Repositories
 {
     public class ProdutoRepository : BaseRepository<Produto>, IProdutoRepository
     {
         public ProdutoRepository(ApplicationContext contexto) : base(contexto)
         {
-
         }
 
         public IList<Produto> GetProdutos()
@@ -23,7 +21,6 @@ namespace MeuECommerce.Repositories
         {
             foreach (var livro in livros)
             {
-               
                 if (!dbSet.Where(p => p.Codigo == livro.Codigo).Any())
                 {
                     dbSet.Add(new Produto(livro.Codigo, livro.Nome, livro.Preco));
@@ -31,7 +28,10 @@ namespace MeuECommerce.Repositories
             }
             contexto.SaveChanges();
         }
+
+        
     }
+
     public class Livro
     {
         public string Codigo { get; set; }

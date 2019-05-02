@@ -1,6 +1,6 @@
-﻿namespace MeuECommerce
+﻿namespace Aula2
 {
-    public interface IDataService
+    interface IDataService
     {
         void InicializaDB();
     }

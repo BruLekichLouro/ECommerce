@@ -1,12 +1,7 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using MeuECommerce.Models;
 
-namespace MeuECommerce
+namespace Aula2
 {
     public class ApplicationContext : DbContext
     {
@@ -16,6 +11,7 @@ namespace MeuECommerce
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<Produto>().HasKey(t => t.Id);
 
             modelBuilder.Entity<Pedido>().HasKey(t => t.Id);
@@ -25,7 +21,7 @@ namespace MeuECommerce
             modelBuilder.Entity<ItemPedido>().HasKey(t => t.Id);
             modelBuilder.Entity<ItemPedido>().HasOne(t => t.Pedido);
             modelBuilder.Entity<ItemPedido>().HasOne(t => t.Produto);
-            
+
             modelBuilder.Entity<Cadastro>().HasKey(t => t.Id);
             modelBuilder.Entity<Cadastro>().HasOne(t => t.Pedido);
         }

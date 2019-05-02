@@ -1,10 +1,12 @@
-﻿using MeuECommerce.Models;
+﻿using Aula2.Models;
+using MeuECommerce;
+using MeuECommerce.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MeuECommerce.Repositories
+namespace Aula2.Repositories
 {
     public interface ICadastroRepository
     {

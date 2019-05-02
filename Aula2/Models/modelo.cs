@@ -5,7 +5,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Threading.Tasks;
 
-namespace MeuECommerce.Models
+namespace Aula2.Models
 {
     [DataContract]
     public class BaseModel

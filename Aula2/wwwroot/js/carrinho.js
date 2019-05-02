@@ -33,8 +33,8 @@
             data: JSON.stringify(data)
         }).done(function (response) {
             let itemPedido = response.itemPedido;
-            let lihaDoItem = $('[item-id=' + itemPedido.id + ]');
-                linhaDoItem.find('input').val(itemPedido.quantidade);
+            let linhaDoItem = $('[item-id=' + itemPedido.id + ']')
+            linhaDoItem.find('input').val(itemPedido.quantidade);
             linhaDoItem.find('[subtotal]').html((itemPedido.subtotal).duasCasas());
 
             let carrinhoViewModel = response.carrinhoViewModel;

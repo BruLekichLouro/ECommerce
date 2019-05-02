@@ -1,15 +1,10 @@
 ﻿using Aula2.Models;
 using Aula2.Models.ViewModels;
 using Aula2.Repositories;
-using MeuECommerce.Models;
-using MeuECommerce.Repositories;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace MeuECommerce.Controllers
+namespace Aula2.Controllers
 {
     public class PedidoController : Controller
     {
@@ -18,13 +13,14 @@ namespace MeuECommerce.Controllers
         private readonly IItemPedidoRepository itemPedidoRepository;
 
         public PedidoController(IProdutoRepository produtoRepository,
-            IPedidoRepository pedidoRepository, IItemPedidoRepository itemPedidoRepository)
+            IPedidoRepository pedidoRepository,
+            IItemPedidoRepository itemPedidoRepository)
         {
             this.produtoRepository = produtoRepository;
             this.pedidoRepository = pedidoRepository;
             this.itemPedidoRepository = itemPedidoRepository;
         }
-  
+
         public IActionResult Carrossel()
         {
             return View(produtoRepository.GetProdutos());
@@ -36,7 +32,7 @@ namespace MeuECommerce.Controllers
             {
                 pedidoRepository.AddItem(codigo);
             }
-            
+
             List<ItemPedido> itens = pedidoRepository.GetPedido().Itens;
             CarrinhoViewModel carrinhoViewModel = new CarrinhoViewModel(itens);
             return base.View(carrinhoViewModel);
@@ -49,14 +45,13 @@ namespace MeuECommerce.Controllers
 
         public IActionResult Resumo()
         {
-            Pedido pedido = pedidoRepository.GetPedido();
-            return View(pedido);
+            return View(pedidoRepository.GetPedido());
         }
 
         [HttpPost]
         public UpdateQuantidadeResponse UpdateQuantidade([FromBody]ItemPedido itemPedido)
         {
-            return pedidoRepository.UpdateQuantidade(itemPedido);        
+            return pedidoRepository.UpdateQuantidade(itemPedido);
         }
     }
 }

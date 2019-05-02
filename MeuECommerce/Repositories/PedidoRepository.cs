@@ -26,38 +26,38 @@ namespace MeuECommerce.Repositories
         public void AddItem(string codigo)
         {
             var produto = contexto.Set<Produto>()
-                        .Where(p => p.Codigo == codigo)
-                        .SingleOrDefault();
+                            .Where(p => p.Codigo == codigo)
+                            .SingleOrDefault();
 
             if (produto == null)
             {
                 throw new ArgumentException("Produto não encontrado");
             }
+
             var pedido = GetPedido();
 
             var itemPedido = contexto.Set<ItemPedido>()
-                        .Where(i => i.Produto.Codigo == codigo
-                            && i.Pedido.Id == pedido.Id)
-                        .SingleOrDefault();
+                                .Where(i => i.Produto.Codigo == codigo
+                                        && i.Pedido.Id == pedido.Id)
+                                .SingleOrDefault();
 
             if (itemPedido == null)
             {
                 itemPedido = new ItemPedido(pedido, produto, 1, produto.Preco);
                 contexto.Set<ItemPedido>()
-                                .Add(itemPedido);
+                    .Add(itemPedido);
 
                 contexto.SaveChanges();
             }
-         }
-        
+        }
 
         public Pedido GetPedido()
         {
             var pedidoId = GetPedidoId();
             var pedido = dbSet
-                .Where(p => p.Id == pedidoId)
                 .Include(p => p.Itens)
-                 .ThenInclude(i => i.Produto)
+                    .ThenInclude(i => i.Produto)
+                .Where(p => p.Id == pedidoId)
                 .SingleOrDefault();
 
             if (pedido == null)
@@ -75,6 +75,7 @@ namespace MeuECommerce.Repositories
         {
             return contextAccessor.HttpContext.Session.GetInt32("pedidoId");
         }
+
         private void SetPedidoId(int pedidoId)
         {
             contextAccessor.HttpContext.Session.SetInt32("pedidoId", pedidoId);
