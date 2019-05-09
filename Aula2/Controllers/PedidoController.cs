@@ -53,7 +53,11 @@ namespace Aula2.Controllers
         [HttpPost]
         public IActionResult Resumo(Cadastro cadastro)
         {
-            return View(pedidoRepository.GetPedido());
+            if (ModelState.IsValid)
+            {
+                return View(pedidoRepository.UpdateCadastro(cadastro));
+            }
+            return RedirectToAction("Cadastro");
         }
 
         [HttpPost]
