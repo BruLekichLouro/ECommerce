@@ -1,4 +1,5 @@
 ﻿
+using Aula2.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Aula2
@@ -24,6 +25,7 @@ namespace Aula2
 
             modelBuilder.Entity<Cadastro>().HasKey(t => t.Id);
             modelBuilder.Entity<Cadastro>().HasOne(t => t.Pedido);
+            
         }
     }
 }

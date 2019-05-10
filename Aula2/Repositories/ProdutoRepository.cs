@@ -1,6 +1,4 @@
 ﻿using Aula2.Models;
-using MeuECommerce;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -28,8 +26,6 @@ namespace Aula2.Repositories
             }
             contexto.SaveChanges();
         }
-
-        
     }
 
     public class Livro

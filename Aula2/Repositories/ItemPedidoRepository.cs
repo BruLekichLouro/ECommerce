@@ -1,10 +1,5 @@
-﻿using MeuECommerce;
-using MeuECommerce.Models;
-using MeuECommerce.Repositories;
-using System;
-using System.Collections.Generic;
+﻿using Aula2.Models;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Aula2.Repositories
 {

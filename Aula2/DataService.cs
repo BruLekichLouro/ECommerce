@@ -1,5 +1,4 @@
 ﻿using Aula2.Repositories;
-using MeuECommerce;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System.Collections.Generic;

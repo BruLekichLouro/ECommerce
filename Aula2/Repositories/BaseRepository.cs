@@ -1,5 +1,4 @@
 ﻿using Aula2.Models;
-using MeuECommerce;
 using Microsoft.EntityFrameworkCore;
 
 namespace Aula2.Repositories
