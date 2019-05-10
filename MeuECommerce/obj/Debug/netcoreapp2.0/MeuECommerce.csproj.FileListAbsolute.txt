@@ -3,7 +3,6 @@ C:\Users\bubub\Documents\ECommerce\ECommerce\MeuECommerce\bin\Debug\netcoreapp2.
 C:\Users\bubub\Documents\ECommerce\ECommerce\MeuECommerce\bin\Debug\netcoreapp2.0\MeuECommerce.runtimeconfig.dev.json
 C:\Users\bubub\Documents\ECommerce\ECommerce\MeuECommerce\bin\Debug\netcoreapp2.0\MeuECommerce.dll
 C:\Users\bubub\Documents\ECommerce\ECommerce\MeuECommerce\bin\Debug\netcoreapp2.0\MeuECommerce.pdb
-C:\Users\bubub\Documents\ECommerce\ECommerce\MeuECommerce\obj\Debug\netcoreapp2.0\MeuECommerce.csprojAssemblyReference.cache
 C:\Users\bubub\Documents\ECommerce\ECommerce\MeuECommerce\obj\Debug\netcoreapp2.0\MeuECommerce.csproj.CoreCompileInputs.cache
 C:\Users\bubub\Documents\ECommerce\ECommerce\MeuECommerce\obj\Debug\netcoreapp2.0\MeuECommerce.AssemblyInfoInputs.cache
 C:\Users\bubub\Documents\ECommerce\ECommerce\MeuECommerce\obj\Debug\netcoreapp2.0\MeuECommerce.AssemblyInfo.cs

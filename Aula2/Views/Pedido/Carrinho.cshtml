@@ -4,6 +4,7 @@
 @model CarrinhoViewModel;
 
 <h3>Meu Carrinho</h3>
+<form method="post" asp-action="carrinho"></form>
 
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -25,6 +26,7 @@
         </div>
     </div>
     <div class="panel-body">
+
         @foreach (var item in Model.Itens)
         {
             <div class="row row-center linha-produto" item-id="@item.Id">

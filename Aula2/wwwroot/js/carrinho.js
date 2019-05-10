@@ -26,6 +26,12 @@
                 };
     }
     postQuantidade(data) {
+
+        let token = $('[name=__RequestVerificationToken]').val();
+
+        let headers = {};
+        headers['RequestVerificationToken'] = token;
+
         $.ajax({
             url: '/pedido/updatequantidade',
             type: 'POST',

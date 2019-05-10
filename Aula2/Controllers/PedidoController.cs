@@ -63,6 +63,7 @@ namespace Aula2.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public UpdateQuantidadeResponse UpdateQuantidade([FromBody]ItemPedido itemPedido)
         {
             return pedidoRepository.UpdateQuantidade(itemPedido);
