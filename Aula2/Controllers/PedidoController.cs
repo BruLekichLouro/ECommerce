@@ -3,6 +3,7 @@ using Aula2.Models.ViewModels;
 using Aula2.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Aula2.Controllers
 {
@@ -21,12 +22,12 @@ namespace Aula2.Controllers
             this.itemPedidoRepository = itemPedidoRepository;
         }
 
-        public IActionResult Carrossel()
+        public async Task <IActionResult> Carrossel()
         {
             return View(produtoRepository.GetProdutos());
         }
 
-        public IActionResult Carrinho(string codigo)
+        public async Task<IActionResult> Carrinho(string codigo)
         {
             if (!string.IsNullOrEmpty(codigo))
             {
@@ -51,6 +52,7 @@ namespace Aula2.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Resumo(Cadastro cadastro)
         {
             if (ModelState.IsValid)
