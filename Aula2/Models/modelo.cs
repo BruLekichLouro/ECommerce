@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Aula2.Models
 {
     [DataContract]
-    public class BaseModel
+    public abstract class BaseModel
     {
         [DataMember]
         public int Id { get; protected set; }
@@ -79,7 +79,7 @@ namespace Aula2.Models
     }
     [DataContract]
     public class ItemPedido : BaseModel
-    {   
+    {
         [Required]
         [DataMember]
         public Pedido Pedido { get; private set; }
@@ -91,10 +91,9 @@ namespace Aula2.Models
         public int Quantidade { get; private set; }
         [Required]
         [DataMember]
-        public decimal Subtotal => Quantidade * PrecoUnitario;
-        [Required]
-        [DataMember]
         public decimal PrecoUnitario { get; private set; }
+        [DataMember]
+        public decimal Subtotal => Quantidade * PrecoUnitario;
 
         public ItemPedido()
         {

@@ -1,12 +1,13 @@
 ﻿using Aula2.Models;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Aula2.Repositories
 {
     public interface ICadastroRepository
     {
-        Cadastro Update(int cadastroId, Cadastro novoCadastro);
+        Task<Cadastro> Update(int cadastroId, Cadastro novoCadastro);
     }
     public class CadastroRepository : BaseRepository<Cadastro>, ICadastroRepository
     {
@@ -14,7 +15,7 @@ namespace Aula2.Repositories
         {
         }
 
-        public Cadastro Update(int cadastroId, Cadastro novoCadastro)
+        public async Task<Cadastro> Update(int cadastroId, Cadastro novoCadastro)
         {
             var cadastroDB = dbSet.Where(c => c.Id == cadastroId)
        .SingleOrDefault();
@@ -24,8 +25,8 @@ namespace Aula2.Repositories
                 throw new ArgumentNullException("cadastro");
             }
             cadastroDB.Update(novoCadastro);
-            contexto.SaveChanges();
+            await contexto.SaveChangesAsync();
             return cadastroDB;
-        }  
+        }
     }
 }

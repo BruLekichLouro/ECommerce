@@ -1,6 +1,7 @@
 ﻿using Aula2.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Aula2.Repositories
 {
@@ -25,6 +26,11 @@ namespace Aula2.Repositories
                 }
             }
             contexto.SaveChanges();
+        }
+
+        Task<IList<Produto>> IProdutoRepository.GetProdutos()
+        {
+            throw new System.NotImplementedException();
         }
     }
 

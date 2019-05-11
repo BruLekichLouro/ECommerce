@@ -2,6 +2,7 @@
 using Aula2.Models.ViewModels;
 using Aula2.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -22,7 +23,7 @@ namespace Aula2.Controllers
             this.itemPedidoRepository = itemPedidoRepository;
         }
 
-        public async Task <IActionResult> Carrossel()
+        public async Task<IActionResult> Carrossel()
         {
             return View(produtoRepository.GetProdutos());
         }
@@ -31,15 +32,16 @@ namespace Aula2.Controllers
         {
             if (!string.IsNullOrEmpty(codigo))
             {
-                pedidoRepository.AddItem(codigo);
+                await pedidoRepository.AddItem(codigo);
             }
 
-            List<ItemPedido> itens = pedidoRepository.GetPedido().Itens;
+            Pedido pedido = await pedidoRepository.GetPedido();
+            List<ItemPedido> itens = pedido.Itens;
             CarrinhoViewModel carrinhoViewModel = new CarrinhoViewModel(itens);
             return base.View(carrinhoViewModel);
         }
 
-        public IActionResult Cadastro()
+        public async Task<IActionResult> Cadastro()
         {
             var pedido = pedidoRepository.GetPedido();
 
@@ -53,7 +55,7 @@ namespace Aula2.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Resumo(Cadastro cadastro)
+        public async Task<IActionResult> Resumo(Cadastro cadastro)
         {
             if (ModelState.IsValid)
             {
@@ -64,9 +66,9 @@ namespace Aula2.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public UpdateQuantidadeResponse UpdateQuantidade([FromBody]ItemPedido itemPedido)
+        public async Task<UpdateQuantidadeResponse> UpdateQuantidade([FromBody]ItemPedido itemPedido)
         {
-            return pedidoRepository.UpdateQuantidade(itemPedido);
+            return await pedidoRepository.UpdateQuantidade(itemPedido);
         }
     }
 }

@@ -1,12 +1,16 @@
-﻿using Aula2.Models.ViewModels;
+﻿using System.Threading.Tasks;
+using Aula2.Models.ViewModels;
 
 namespace Aula2.Models
 {
     public class UpdateQuantidadeResponse
     {
-        public UpdateQuantidadeResponse(ItemPedido itemPedido, CarrinhoViewModel carrinhoViewModel)
+        private Task<ItemPedido> itemPedidoDB;
+
+
+        public UpdateQuantidadeResponse(Task<ItemPedido> itemPedidoDB, CarrinhoViewModel carrinhoViewModel)
         {
-            ItemPedido = itemPedido;
+            this.itemPedidoDB = itemPedidoDB;
             CarrinhoViewModel = carrinhoViewModel;
         }
 
