@@ -25,7 +25,7 @@ namespace Aula2.Controllers
 
         public async Task<IActionResult> Carrossel()
         {
-            return View(produtoRepository.GetProdutos());
+            return View(await produtoRepository.GetProdutos());
         }
 
         public async Task<IActionResult> Carrinho(string codigo)
@@ -43,7 +43,7 @@ namespace Aula2.Controllers
 
         public async Task<IActionResult> Cadastro()
         {
-            var pedido = pedidoRepository.GetPedido();
+            var pedido = await pedidoRepository.GetPedido();
 
             if (pedido == null)
             {

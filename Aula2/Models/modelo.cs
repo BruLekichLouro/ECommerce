@@ -108,7 +108,7 @@ namespace Aula2.Models
             PrecoUnitario = precoUnitario;
         }
 
-        internal void AtualizaQuantidade(int quantidade)
+        public void AtualizaQuantidade(int quantidade)
         {
             Quantidade = quantidade;
         }

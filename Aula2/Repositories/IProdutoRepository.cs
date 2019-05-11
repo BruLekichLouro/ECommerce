@@ -6,7 +6,7 @@ namespace Aula2.Repositories
 {
     public interface IProdutoRepository
     {
-        void SaveProdutos(List<Livro> livros);
+        Task SaveProdutos(List<Livro> livros);
         Task <IList<Produto>> GetProdutos();
     }
 }

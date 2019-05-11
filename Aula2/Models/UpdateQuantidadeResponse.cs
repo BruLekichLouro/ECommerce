@@ -6,11 +6,11 @@ namespace Aula2.Models
     public class UpdateQuantidadeResponse
     {
         private Task<ItemPedido> itemPedidoDB;
+        private ItemPedido itemPedidoDB1;
 
-
-        public UpdateQuantidadeResponse(Task<ItemPedido> itemPedidoDB, CarrinhoViewModel carrinhoViewModel)
+        public UpdateQuantidadeResponse(ItemPedido itemPedidoDB, CarrinhoViewModel carrinhoViewModel)
         {
-            this.itemPedidoDB = itemPedidoDB;
+            this.itemPedidoDB = this.itemPedidoDB;
             CarrinhoViewModel = carrinhoViewModel;
         }
 

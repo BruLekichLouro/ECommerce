@@ -95,7 +95,7 @@ namespace Aula2.Repositories
 
         public async Task<UpdateQuantidadeResponse> UpdateQuantidade(ItemPedido itemPedido)
         {
-            var itemPedidoDB =  itemPedidoRepository.GetItemPedido(itemPedido.Id);
+            var itemPedidoDB =  await itemPedidoRepository.GetItemPedido(itemPedido.Id);
 
             if (itemPedidoDB != null)
             {
